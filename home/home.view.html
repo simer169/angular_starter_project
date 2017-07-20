@@ -1,0 +1,34 @@
+<h1>Hi {{vm.user.firstName}}!</h1>
+<p>You're logged in!!</p>
+<h3>All registered users:</h3>
+<ul>
+    <li ng-repeat="user in vm.allUsers">
+        {{user.username}} ({{user.firstName}} {{user.lastName}}) - <a ng-click="vm.deleteUser(user.id)">Delete</a>
+    </li>
+</ul>
+
+<div class="container-fluid">
+    <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data" chart-labels="vm.labels">
+    </canvas>
+</div>
+<br />
+
+<div>
+    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+
+    <h4>Inline</h4>
+    <div style="display:inline-block; min-height:290px;">
+        <div uib-datepicker ng-model="vm.dt" class="well well-sm" datepicker-options="vm.options"></div>
+    </div>
+
+    <hr />
+    <button type="button" class="btn btn-sm btn-info" ng-click="vm.today()">Today</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="vm.setDate(2009, 7, 24)">2009-08-24</button>
+    <button type="button" class="btn btn-sm btn-danger" ng-click="vm.clear()">Clear</button>
+    <button type="button" class="btn btn-sm btn-default" ng-click="vm.toggleMin()" uib-tooltip="After today restriction">Min date</button>
+</div>
+
+
+
+<p>&nbsp;</p>
+<p><a href="#!/login" class="btn btn-primary">Logout</a></p>
